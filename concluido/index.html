@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Obrigado pela sua compra!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0c0c0c;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 40px 30px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    .logo img {
+      width: 120px;
+      margin-bottom: 25px;
+    }
+
+    .loader {
+      border: 6px solid #fffff;
+      border-top: 6px solid #50c817;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1.2s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .mensagem-final {
+      display: none;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      color: #ff3b3b;
+      font-weight: bold;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 1.05em;
+    }
+    
+    .mensagem-final h1 {
+      color: #00ff99;
+    }
+
+    .notification {
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+
+    .important {
+      color: #ff0000;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://blitzzoficial.com/Gamer4.svg" alt="Logo Blitz">
+    </div>
+
+    <div id="carregando">
+      <h1>Processando pagamento...</h1>
+      <div class="loader"></div>
+      <p>Aguarde alguns instantes.</p>
+    </div>
+
+    <div id="mensagem-final" class="mensagem-final">
+      <h1>Pagamento aprovado com sucesso!</h1>
+      <p>Sua compra foi confirmada e está sendo<span class="highlight"> preparada para envio!</span>
+      <p>O código de <span class="highlight">rastreio e nota fiscal</span> serão enviados para seu e-mail em até 4 hora, após a postagem da transportadora.</p>
+      <p>Fique de olho na sua <span class="highlight">caixa de entrada</span> e na <span class="highlight">pasta de spam</span>.</p>
+      <div class="notification">
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2025 Blitz Eletronicos. Todos os direitos reservados.
+    </div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('carregando').style.display = 'none';
+      document.getElementById('mensagem-final').style.display = 'block';
+    }, 4000); // 4 segundos de "processando"
+  </script>
+</body>
+</html>
