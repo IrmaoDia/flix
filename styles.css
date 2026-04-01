@@ -524,14 +524,6 @@ body {
   border-radius: 12px;
   border-left: 4px solid #28a745;
 
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.feature-card.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 
