@@ -1227,6 +1227,10 @@ Fale conosco por e-mail ou telefone — teremos prazer em resolver tudo o mais r
     </div>
 
     <script src="script.js" defer></script>
-    
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/sw.js");
+        }
+    </script>
 </body>
 </html>

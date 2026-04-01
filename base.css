@@ -373,9 +373,9 @@
 }
 
 .animate-section.animate--hidden .animate-item {
-  opacity: 0;
-  filter: blur(1px);
-  transform: translate(0%, 0%) scale(100%);
+  opacity: 1;
+  filter: none;
+  transform: none;
 }
 
 .animate-section.animate--shown .animate-item {
