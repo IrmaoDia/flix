@@ -294,9 +294,6 @@ body {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .main-image:hover {
@@ -310,7 +307,14 @@ body {
     object-fit: cover;
     transition: opacity 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    align-self: stretch;
+}
+
+.main-image iframe {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
 }
 
 .main-image:hover img {
