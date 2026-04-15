@@ -98,11 +98,11 @@ setTimeout(() => {
     let checkoutUrl = '';
 
     if (price_current.innerHTML === 'R$ 119,90') {
-        checkoutUrl = 'https://pay.flix-oficial.com/checkout?product=dc151f78-6b31-11f0-a3b6-46da4690ad53';
+        checkoutUrl = 'https://checkout.flix-oficiall.digital/VCCL1O8SCXR6';
     }
     // NO LUGAR DESSE 89 Se coloca a url
     else if (price_current.innerHTML === 'R$ 89,90') {
-        checkoutUrl = 'https://pay.flix-oficial.com/checkout?product=8e7ed19a-6b31-11f0-a3b6-46da4690ad53';
+        checkoutUrl = 'https://checkout.flix-oficiall.digital/VCCL1O8SCXPQ';
     }
 
     if (checkoutUrl && paramsToPass) {
