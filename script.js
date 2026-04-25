@@ -177,83 +177,19 @@ function updateCartCount() {
 updateCartCount()
 
 const mainImage = document.getElementById("mainImage");
-const mainVideo = document.getElementById("mainVideo");
-const thumbnails = document.querySelectorAll(".thumbnail");
 const mainMedia = document.getElementById("mainMedia");
 
-thumbnails.forEach((thumbnail) => {
-  thumbnail.addEventListener("click", () => {
-    const isVideo = thumbnail.dataset.video === "true";
 
-    thumbnails.forEach((thumb) => thumb.classList.remove("active"));
-    thumbnail.classList.add("active");
-
-    if (isVideo) {
-      mainImage.style.display = "none";
-      mainVideo.style.display = "block";
-
-      mainMedia.style.display = 'flex';
-      mainMedia.style.alignItems = 'center'
-
-    } else {
-      mainVideo.style.display = "none";
-      mainImage.src = thumbnail.getAttribute("data-image");
-      mainImage.alt = thumbnail.querySelector("img").alt;
-      mainImage.style.display = "block";
-      mainMedia.style.display = 'block';
-
-    }
-  });
-});
-
-
-document.addEventListener("keydown", (e) => {
-    const activeThumbnail = document.querySelector(".thumbnail.active")
-    const thumbnailsArray = Array.from(thumbnails)
-    const currentIndex = thumbnailsArray.indexOf(activeThumbnail)
-
-    let nextIndex = currentIndex
-
-    if (e.key === "ArrowLeft" && currentIndex > 0) {
-        nextIndex = currentIndex - 1
-    } else if (e.key === "ArrowRight" && currentIndex < thumbnails.length - 1) {
-        nextIndex = currentIndex + 1
-    }
-
-    if (nextIndex !== currentIndex) {
-        thumbnails[nextIndex].click()
-    }
-})
-
-
+// Swipe na imagem principal → delega para as setas do sistema unificado
 let touchStartX = 0
-let touchEndX = 0
-
 mainImage.addEventListener("touchstart", (e) => {
     touchStartX = e.changedTouches[0].screenX
-})
-
+}, { passive: true })
 mainImage.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX
-    handleSwipe()
-})
-
-function handleSwipe() {
-    const swipeThreshold = 50
-    const activeThumbnail = document.querySelector(".thumbnail.active")
-    const thumbnailsArray = Array.from(thumbnails)
-    const currentIndex = thumbnailsArray.indexOf(activeThumbnail)
-
-    if (touchEndX < touchStartX - swipeThreshold && currentIndex < thumbnails.length - 1) {
-
-        thumbnails[currentIndex + 1].click()
-    }
-
-    if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
-
-        thumbnails[currentIndex - 1].click()
-    }
-}
+    const diff = touchStartX - e.changedTouches[0].screenX
+    if (diff > 50)  document.getElementById("nextBtn").click()
+    if (diff < -50) document.getElementById("prevBtn").click()
+}, { passive: true })
 
 
 mainImage.addEventListener("click", () => {
@@ -374,5 +310,6 @@ const guarantee_item1 = document.getElementById('guarantee_item1')
 const guarantee_item2 = document.getElementById('guarantee_item2')
 const guarantee_item3 = document.getElementById('guarantee_item3')
 
-guarantee_item3.style.display = 'none'
+if (guarantee_item3) guarantee_item3.style.display = 'none'
+
 

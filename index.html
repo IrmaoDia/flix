@@ -127,33 +127,25 @@
                 <div class="product-image">
                     <div class="image-gallery">
                         <div class="main-image" id="mainMedia">
-
                             <button class="nav-arrow left" id="prevBtn">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                    </button>
-
-                                    <button class="nav-arrow right" id="nextBtn">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
-
-
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-arrow right" id="nextBtn">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
                             <img id="mainImage" src="./img/img.webp" alt="Mini Game PlayZone 1TB - Imagem Principal">
 
 
      
 
 
-                                <vturb-smartplayer
-                                id="vid-688541fd3d9c5796889d2969"
-                                style="display: block; margin: 0 auto; width: 100%;">
-                                </vturb-smartplayer>
-
+                                <div id="videoWrapper" style="display: none; width: 100%;">
+                                    <vturb-smartplayer id="vid-688541fd3d9c5796889d2969" style="display: block; width: 100%;"></vturb-smartplayer>
+                                </div>
                                 <script type="text/javascript">
-                                var s = document.createElement("script");
-                                s.src = "https://scripts.converteai.net/1cdf0196-328c-4372-ab25-d73cd491f075/players/688541fd3d9c5796889d2969/v4/player.js";
-                                s.async = true;
-                                s.id = 'mainVideo';
-                                document.head.appendChild(s);
+                                var s=document.createElement("script");
+                                s.src="https://scripts.converteai.net/1cdf0196-328c-4372-ab25-d73cd491f075/players/688541fd3d9c5796889d2969/v4/player.js",
+                                s.async=!0,document.head.appendChild(s);
                                 </script>
 
 
@@ -166,211 +158,155 @@
 
 
                         </div>
-                        <div class="thumbnail-images">
-
-                            <!-- NOVAS IMAGEMS AQUI MAN, NESSAS DUAS ABAIXO -->
-
-
-
-
-                            <div class="thumbnail video-thumb" data-video="true">
-                                <img src="./img/videogig.gif" alt="Vídeo" style="width:100%; height:100%; object-fit:cover; border-radius:6px;">
+                        <div class="thumb-strip-wrapper">
+                            <div class="thumbnail-images" id="thumbStrip">
+                                <div class="thumbnail video-thumb" data-video="true">
+                                    <img src="./img/videogig.gif" alt="Vídeo" style="width:100%; height:100%; object-fit:cover; border-radius:6px;">
+                                </div>
+                                <div class="thumbnail active" data-image="./img/img.webp">
+                                    <img src="./img/img.webp" alt="PlayZone - Vista Principal">
+                                </div>
+                                <div class="thumbnail" data-image="./img/img2.webp">
+                                    <img src="./img/img2.webp" alt="PlayZone - Vista 2">
+                                </div>
+                                <div class="thumbnail" data-image="./img/nova1.png">
+                                    <img src="./img/nova1.png" alt="PlayZone - Vista 3">
+                                </div>
+                                <div class="thumbnail" data-image="./img/nova2.webp">
+                                    <img src="./img/nova2.webp" alt="PlayZone - Vista 4">
+                                </div>
+                                <div class="thumbnail" data-image="./img/v1.webp">
+                                    <img src="./img/v1.webp" alt="PlayZone - Vista 5">
+                                </div>
+                                <div class="thumbnail" data-image="./img/v2.webp">
+                                    <img src="./img/v2.webp" alt="PlayZone - Vista 6">
+                                </div>
+                                <div class="thumbnail" data-image="./img/Play-Zone-1-_1_.webp">
+                                    <img src="./img/Play-Zone-1-_1_.webp" alt="PlayZone - Controle Incluído">
+                                </div>
                             </div>
-
-
-                            <div class="thumbnail" data-image="./img/img2.webp">
-                                <img src="./img/img2.webp" alt="PlayZone - Vista Principal">
-                            </div>
-
-
-                            <div class="thumbnail" data-image="./img/v1.webp">
-                                <img src="./img/v1.webp" alt="PlayZone - Vista Principal">
-                            </div>
-
-                            <div class="thumbnail" data-image="./img/v2.webp">
-                                <img src="./img/v2.webp" alt="PlayZone - Vista Principal">
-                            </div>
-                            <div class="thumbnail" data-image="./img/Play-Zone-1-_1_.webp">
-                                <img src="./img/Play-Zone-1-_1_.webp" alt="PlayZone - Controle Incluído">
-                            </div>
-
-
-
-
-                            <div class="thumbnail active" data-image="./img/img.webp">
-                                <img src="./img/img.webp" alt="PlayZone - Vista Principal">
-                            </div>
-
-
-
-                            <div class="thumbnail" data-image="./img/v2.webp">
-                                <img src="./img/v2.webp" alt="PlayZone - Vista Principal">
-                            </div>
-
-                            <div class="thumbnail" data-image="./img/Play-Zone-1-_1_.webp">
-                                <img src="./img/Play-Zone-1-_1_.webp" alt="PlayZone - Controle Incluído">
-                            </div>
-
-                            
                         </div>
                     </div>
                 </div>
 
-
 <style>
-
-
-    @media (max-width: 480px) {
-  .thumbnail-images {
-    display: flex;
-    overflow: hidden;
-  }
-
-  .thumbnail {
-    flex: 0 0 calc(100% / 5);
-  }
-}
-
-
-
-
-
+/* Setas de navegação da imagem principal */
 .main-image {
-  position: relative;
+    position: relative;
+    isolation: isolate;
 }
 
 .nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.6);
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.22);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.5;
 }
 
 .nav-arrow:hover {
-  background: rgba(0,0,0,0.9);
-  transform: translateY(-50%) scale(1.1);
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
 }
 
-.nav-arrow.left {
-  left: 10px;
-}
+.nav-arrow.left  { left: 10px; }
+.nav-arrow.right { right: 10px; }
 
-.nav-arrow.right {
-  right: 10px;
-}
+/* Fade suave na imagem principal */
+#mainImage { transition: opacity 0.25s ease; }
 
-
-
-
+/* Thumbnails — o JS controla a largura individual via offsetWidth */
 </style>
 
 <script>
+/* Script unificado: CSS dimensiona os thumbnails, JS só move o strip */
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.querySelector(".thumbnail-images");
-  const thumbnails = Array.from(container.children);
+    const thumbStrip = document.getElementById("thumbStrip");
+    const wrapper    = thumbStrip.parentElement;
+    const thumbItems = Array.from(thumbStrip.children);
+    const mainImage    = document.getElementById("mainImage");
+    const videoWrapper = document.getElementById("videoWrapper");
 
-  let startIndex = 0;
-  const visibleCount = 5;
+    const VISIBLE = 5;
+    let startIndex   = 0;
+    let currentIndex = thumbItems.findIndex(t => t.classList.contains("active"));
+    if (currentIndex === -1) currentIndex = 0;
 
-  function render() {
-    thumbnails.forEach((thumb) => {
-      thumb.style.display = "none";
+    function getGap() {
+        return parseFloat(getComputedStyle(thumbStrip).gap) || 8;
+    }
+
+    function applyTransform() {
+        const gap = getGap();
+        const w   = thumbItems[0].getBoundingClientRect().width;
+        if (w <= 0) return;
+        thumbStrip.style.transform = `translateX(-${startIndex * (w + gap)}px)`;
+    }
+
+    function syncStrip(index) {
+        if (index < startIndex) {
+            startIndex = index;
+        } else if (index >= startIndex + VISIBLE) {
+            startIndex = index - VISIBLE + 1;
+        }
+        const maxStart = Math.max(0, thumbItems.length - VISIBLE);
+        startIndex = Math.max(0, Math.min(startIndex, maxStart));
+        applyTransform();
+    }
+
+    function showItem(index) {
+        thumbItems.forEach(t => t.classList.remove("active"));
+        const item = thumbItems[index];
+        item.classList.add("active");
+        currentIndex = index;
+        syncStrip(index);
+
+        mainImage.style.opacity = "0";
+        setTimeout(() => {
+            if (item.dataset.video) {
+                mainImage.style.display = "none";
+                videoWrapper.style.display = "block";
+            } else {
+                mainImage.style.display = "block";
+                videoWrapper.style.display = "none";
+                mainImage.src = item.dataset.image;
+            }
+            mainImage.style.opacity = "1";
+        }, 220);
+    }
+
+    /* Recalcula o transform se o container redimensionar (rotação de tela, etc.) */
+    const ro = new ResizeObserver(() => applyTransform());
+    ro.observe(wrapper);
+
+    thumbItems.forEach((thumb, i) => {
+        thumb.addEventListener("click", () => showItem(i));
     });
 
-    for (let i = 0; i < visibleCount; i++) {
-      const index = (startIndex + i) % thumbnails.length;
-      thumbnails[index].style.display = "block";
-    }
-  }
-
-  render();
-
-  container.addEventListener("click", (e) => {
-    const clicked = e.target.closest(".thumbnail");
-    if (!clicked) return;
-
-    // AVANÇA sempre
-    startIndex = (startIndex + 1) % thumbnails.length;
-    render();
-  });
-
-  // OPCIONAL: botão ou scroll pra voltar
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-      startIndex = (startIndex - 1 + thumbnails.length) % thumbnails.length;
-      render();
-    }
-  });
-});
-</script>
-
-
-
-<script>
-
-
-   
-document.addEventListener("DOMContentLoaded", () => {
-  const thumbnails = Array.from(document.querySelectorAll(".thumbnail"));
-  const mainImage = document.getElementById("mainImage");
-  const mainVideo = document.getElementById("mainVideo");
-  const player = document.querySelector("vturb-smartplayer");
-
-  let currentIndex = thumbnails.findIndex(t => t.classList.contains("active"));
-  if (currentIndex === -1) currentIndex = 0;
-
-  function showItem(index) {
-    thumbnails.forEach(t => t.classList.remove("active"));
-    const item = thumbnails[index];
-    item.classList.add("active");
-
-    const isVideo = item.dataset.video;
-
-    if (isVideo) {
-      mainImage.style.display = "none";
-      if (player) player.style.display = "block";
-    } else {
-      mainImage.style.display = "block";
-      if (player) player.style.display = "none";
-
-      const newSrc = item.dataset.image;
-      mainImage.src = newSrc;
-    }
-
-    currentIndex = index;
-  }
-
-  // Clique nas thumbnails
-  thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener("click", () => {
-      showItem(index);
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        showItem((currentIndex + 1) % thumbItems.length);
     });
-  });
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        showItem((currentIndex - 1 + thumbItems.length) % thumbItems.length);
+    });
 
-  // Botão NEXT
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    let next = (currentIndex + 1) % thumbnails.length;
-    showItem(next);
-  });
-
-  // Botão PREV
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    let prev = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-    showItem(prev);
-  });
-
+    document.addEventListener("keydown", e => {
+        if (e.key === "ArrowRight") showItem((currentIndex + 1) % thumbItems.length);
+        if (e.key === "ArrowLeft")  showItem((currentIndex - 1 + thumbItems.length) % thumbItems.length);
+    });
 });
 </script>
 
@@ -522,25 +458,24 @@ let num = 67;
 </div>
 
     
- <script>const cards = document.querySelectorAll(".feature-card");
+<script>
+const cards = document.querySelectorAll(".feature-card");
 let activeIndex = 0;
 
 function rotateFeatures() {
-  const previous = activeIndex === 0 ? cards.length - 1 : activeIndex - 1;
+  const prev = activeIndex === 0 ? cards.length - 1 : activeIndex - 1;
+  const curr = activeIndex;
 
-  
-  cards[previous].classList.remove("visible");
+  cards[prev].classList.remove("visible");
 
+  setTimeout(() => {
+    cards[curr].classList.add("visible");
+  }, 500);
 
-  cards[activeIndex].classList.add("visible");
-
-  
   activeIndex = (activeIndex + 1) % cards.length;
 }
 
-
 rotateFeatures();
-
 setInterval(rotateFeatures, 4000);
 </script>
 
