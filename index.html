@@ -226,7 +226,7 @@
 .nav-arrow.right { right: 10px; }
 
 /* Fade suave na imagem principal */
-#mainImage { transition: opacity 0.25s ease; }
+#mainImage { transition: opacity 0.15s ease; }
 
 /* Thumbnails — o JS controla a largura individual via offsetWidth */
 </style>
@@ -267,6 +267,14 @@ document.addEventListener("DOMContentLoaded", () => {
         applyTransform();
     }
 
+    /* Pré-carrega todas as imagens para evitar atraso na troca */
+    thumbItems.forEach(t => {
+        if (t.dataset.image) {
+            const img = new Image();
+            img.src = t.dataset.image;
+        }
+    });
+
     function showItem(index) {
         thumbItems.forEach(t => t.classList.remove("active"));
         const item = thumbItems[index];
@@ -279,13 +287,21 @@ document.addEventListener("DOMContentLoaded", () => {
             if (item.dataset.video) {
                 mainImage.style.display = "none";
                 videoWrapper.style.display = "block";
+                mainImage.style.opacity = "1";
             } else {
                 mainImage.style.display = "block";
                 videoWrapper.style.display = "none";
-                mainImage.src = item.dataset.image;
+                const reveal = () => { mainImage.style.opacity = "1"; };
+                if (mainImage.src.endsWith(item.dataset.image) || mainImage.complete) {
+                    mainImage.src = item.dataset.image;
+                    reveal();
+                } else {
+                    mainImage.onload = reveal;
+                    mainImage.onerror = reveal;
+                    mainImage.src = item.dataset.image;
+                }
             }
-            mainImage.style.opacity = "1";
-        }, 220);
+        }, 120);
     }
 
     /* Recalcula o transform se o container redimensionar (rotação de tela, etc.) */
