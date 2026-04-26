@@ -326,7 +326,6 @@ body {
     gap: 8px;
     width: 100%;
     transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
-    will-change: transform;
 }
 
 .thumbnail {
